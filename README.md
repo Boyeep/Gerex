@@ -17,8 +17,8 @@ Folder ini sengaja dibuat standalone di root dan tidak terhubung dengan project 
 
 ```bash
 cd frontend
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 ## Menjalankan Backend

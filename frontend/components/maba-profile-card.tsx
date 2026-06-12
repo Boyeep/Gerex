@@ -14,32 +14,26 @@ export function MabaProfileCard({
   gugus,
 }: MabaProfileCardProps) {
   return (
-    <article className="profile-card">
-      <div className="profile-card__photo-shell">
+    <article className="w-full max-w-[430px] overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white shadow-[0_24px_60px_rgba(20,33,61,0.14)]">
+      <div className="relative aspect-[4/5] overflow-hidden bg-gradient-to-b from-sky-50 to-slate-50">
         <Image
           src={photoSrc}
           alt={`Foto ${name}`}
-          width={180}
-          height={180}
-          className="profile-card__photo"
+          width={800}
+          height={960}
+          className="h-full w-full object-contain object-center object-bottom"
+          sizes="(max-width: 768px) 100vw, 430px"
           priority
         />
       </div>
 
-      <div className="profile-card__content">
-        <span className="profile-card__badge">Maba 2026</span>
-        <h2 className="profile-card__name">{name}</h2>
-
-        <dl className="profile-card__meta">
-          <div className="profile-card__meta-row">
-            <dt>NRP</dt>
-            <dd>{nrp}</dd>
-          </div>
-          <div className="profile-card__meta-row">
-            <dt>Gugus</dt>
-            <dd>{gugus}</dd>
-          </div>
-        </dl>
+      <div className="grid gap-1.5 px-5 py-5 sm:px-6">
+        <h2 className="text-[1.65rem] leading-[1.15] font-extrabold tracking-[-0.03em] text-slate-900 sm:text-[1.9rem]">
+          {name}
+        </h2>
+        <p className="text-base leading-7 font-semibold text-emerald-600 sm:text-[1.05rem]">
+          NRP {nrp} • {gugus}
+        </p>
       </div>
     </article>
   );
