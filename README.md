@@ -1,31 +1,29 @@
 # Maba Gugus Checker Demo
 
-Folder ini sengaja dibuat standalone di root dan tidak terhubung dengan project lain di monorepo.
-
 ## Struktur
 
 - `frontend`: demo Next.js untuk komponen **Kartu Profil Maba**
-- `backend`: API Go sederhana untuk fitur **Gugus Checker**
+- `backend`: API Go simpel untuk fitur **Gugus Checker**
 
 ## Pendekatan Singkat
 
-- Frontend saya pecah menjadi komponen reusable agar data seperti foto, nama, NRP, dan gugus bisa diganti tanpa mengubah layout.
-- Layout dibuat responsif dengan kombinasi grid dan flex supaya tetap rapi di mobile maupun desktop.
-- Backend saya buat sederhana dengan satu endpoint checker berbasis NRP, lalu saya sertakan rancangan schema relasional agar alurnya mudah dinaikkan ke database sungguhan.
+- Frontend dipecah mjadi components yang reusable supaya data kayak foto, nama, NRP, dan gugus bisa diubah tanpa ubah layout.
+- Layout dibuat responsif pakai grid & flex agar rapi di mobile & desktop.
+- Backend dibuat simpel hanya satu endpoint checker berbasis NRP, terus saya ada schema relasional supaya alurnya mudah dimirate ke database.
 
-## Menjalankan Frontend
+## Cara run Frontend
 
 ```bash
 cd frontend
-bun install
-bun run dev
+npm install
+npm run dev
 ```
 
-## Menjalankan Backend
+## Cara run Backend
 
 ```bash
 cd backend
 go run .
 ```
 
-Server backend akan berjalan di `http://localhost:8080`.
+Server backend jalan di `http://localhost:8080`.

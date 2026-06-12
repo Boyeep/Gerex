@@ -1,7 +1,5 @@
 # Gugus Checker API
 
-Backend ini dibuat sesederhana mungkin dengan Go standard library agar fokusnya tetap ke alur fitur.
-
 ## Endpoint
 
 ### `GET /api/gugus-checker?nrp=5025241001`
@@ -32,8 +30,8 @@ Request body:
 1. Client kirim NRP lewat query parameter atau JSON body.
 2. Handler memvalidasi bahwa NRP tidak kosong.
 3. Sistem cari data maba berdasarkan NRP.
-4. Kalau data ditemukan, API mengembalikan `nrp`, `name`, `gugus`, dan `region`.
-5. Kalau data tidak ditemukan, API mengembalikan `404`.
+4. kalau data ditemukan, API mengembalikan `nrp`, `name`, `gugus`, dan `region`.
+5. kalau data tidak ditemukan, API mengembalikan `404`.
 
 ## Rancangan Tabel
 
@@ -42,7 +40,3 @@ Request body:
 - `maba_profiles`: data maba yang menyimpan NRP, nama, foto, dan relasi ke gugus
 
 Detail SQL lengkap ada di `schema.sql`.
-
-## Mock Data
-
-Mock data backend saat ini disimpan di `mock_data.go` dalam bentuk array, lalu diubah menjadi index map untuk lookup NRP yang lebih cepat.
