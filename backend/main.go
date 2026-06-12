@@ -18,27 +18,6 @@ type CheckerRequest struct {
 	NRP string `json:"nrp"`
 }
 
-var records = map[string]MabaRecord{
-	"5025241001": {
-		NRP:    "5025241001",
-		Name:   "Raka Pradana",
-		Gugus:  "Gugus Arunika",
-		Region: "Surabaya Barat",
-	},
-	"5025241002": {
-		NRP:    "5025241002",
-		Name:   "Nadia Maharani",
-		Gugus:  "Gugus Cakrawala",
-		Region: "Surabaya Timur",
-	},
-	"5025241003": {
-		NRP:    "5025241003",
-		Name:   "Fajar Akbar",
-		Gugus:  "Gugus Samudra",
-		Region: "Gresik - Sidoarjo",
-	},
-}
-
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/health", healthHandler)
@@ -92,7 +71,7 @@ func gugusCheckerHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	record, ok := records[nrp]
+	record, ok := recordIndex[nrp]
 	if !ok {
 		writeJSON(w, http.StatusNotFound, map[string]string{
 			"message": "maba data not found",

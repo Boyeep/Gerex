@@ -29,11 +29,11 @@ Request body:
 
 ## Alur API
 
-1. Client mengirim NRP lewat query parameter atau JSON body.
+1. Client kirim NRP lewat query parameter atau JSON body.
 2. Handler memvalidasi bahwa NRP tidak kosong.
-3. Sistem mencari data maba berdasarkan NRP.
-4. Jika data ditemukan, API mengembalikan `nrp`, `name`, `gugus`, dan `region`.
-5. Jika data tidak ditemukan, API mengembalikan `404`.
+3. Sistem cari data maba berdasarkan NRP.
+4. Kalau data ditemukan, API mengembalikan `nrp`, `name`, `gugus`, dan `region`.
+5. Kalau data tidak ditemukan, API mengembalikan `404`.
 
 ## Rancangan Tabel
 
@@ -42,3 +42,7 @@ Request body:
 - `maba_profiles`: data maba yang menyimpan NRP, nama, foto, dan relasi ke gugus
 
 Detail SQL lengkap ada di `schema.sql`.
+
+## Mock Data
+
+Mock data backend saat ini disimpan di `mock_data.go` dalam bentuk array, lalu diubah menjadi index map untuk lookup NRP yang lebih cepat.

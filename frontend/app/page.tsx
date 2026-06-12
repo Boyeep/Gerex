@@ -69,7 +69,7 @@ export default function Home() {
           })
         }
         disabled={currentPage === 1}
-        className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 disabled:cursor-not-allowed disabled:opacity-45"
+        className="h-11 rounded-2xl border border-white/10 bg-slate-900/70 px-4 text-sm font-semibold text-slate-200 transition hover:border-sky-400/40 hover:text-sky-200 disabled:cursor-not-allowed disabled:opacity-45"
       >
         Previous
       </button>
@@ -88,8 +88,8 @@ export default function Home() {
             }
             className={`h-11 min-w-11 rounded-2xl px-4 text-sm font-bold transition ${
               isActive
-                ? "bg-sky-600 text-white shadow-[0_12px_30px_rgba(2,132,199,0.28)]"
-                : "border border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:text-sky-700"
+                ? "bg-sky-500 text-slate-950 shadow-[0_12px_30px_rgba(56,189,248,0.28)]"
+                : "border border-white/10 bg-slate-900/70 text-slate-200 hover:border-sky-400/40 hover:text-sky-200"
             }`}
           >
             {pageNumber}
@@ -105,7 +105,7 @@ export default function Home() {
           })
         }
         disabled={currentPage === totalPages}
-        className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 disabled:cursor-not-allowed disabled:opacity-45"
+        className="h-11 rounded-2xl border border-white/10 bg-slate-900/70 px-4 text-sm font-semibold text-slate-200 transition hover:border-sky-400/40 hover:text-sky-200 disabled:cursor-not-allowed disabled:opacity-45"
       >
         Next
       </button>
@@ -113,27 +113,27 @@ export default function Home() {
   );
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.22),_transparent_24rem),linear-gradient(180deg,#eef6ff_0%,#dbeafe_100%)]">
+    <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.2),_transparent_24rem),radial-gradient(circle_at_bottom_right,_rgba(37,99,235,0.18),_transparent_28rem),linear-gradient(180deg,#020617_0%,#0f172a_100%)]">
       <section className="relative mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-4 py-10 sm:px-6 lg:px-8">
-        <div className="absolute left-1/2 top-32 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full bg-sky-200/45 blur-3xl sm:h-[30rem] sm:w-[30rem]" />
+        <div className="absolute left-1/2 top-32 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full bg-sky-400/20 blur-3xl sm:h-[30rem] sm:w-[30rem]" />
 
         <div className="relative space-y-6">
           <div className="space-y-4">
             <div className="space-y-1">
-              <p className="text-sm font-semibold tracking-[0.18em] text-sky-700 uppercase">
+              <p className="text-sm font-semibold tracking-[0.18em] text-sky-300 uppercase">
                 Maba Finder
               </p>
-              <h1 className="text-3xl font-black tracking-[-0.04em] text-slate-900 sm:text-4xl">
+              <h1 className="text-3xl font-black tracking-[-0.04em] text-white sm:text-4xl">
                 Maba Profile Card
               </h1>
-              <p className="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-                By: Boy Steevn Benaya Aritonang (5025251154)
+              <p className="max-w-2xl text-sm leading-7 text-slate-300 sm:text-base">
+                By: Boy Steven Benaya Aritonang (5025251154)
               </p>
             </div>
 
-            <div className="flex flex-col gap-3 rounded-[1.75rem] border border-white/80 bg-white/80 p-4 shadow-[0_20px_60px_rgba(37,99,235,0.12)] backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-3 rounded-[1.75rem] border border-white/10 bg-slate-900/60 p-4 shadow-[0_20px_60px_rgba(2,6,23,0.45)] backdrop-blur sm:flex-row sm:items-center sm:justify-between">
               <label className="relative block w-full sm:max-w-xl">
-                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-slate-400">
+                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-slate-500">
                   Search
                 </span>
                 <input
@@ -141,11 +141,11 @@ export default function Home() {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Cari nama, NRP, atau gugus"
-                  className="h-14 w-full rounded-2xl border border-slate-200 bg-slate-50 pl-20 pr-4 text-sm font-medium text-slate-900 outline-none transition focus:border-sky-400 focus:bg-white focus:ring-4 focus:ring-sky-100"
+                  className="h-14 w-full rounded-2xl border border-white/10 bg-slate-950/70 pl-20 pr-4 text-sm font-medium text-white outline-none transition placeholder:text-slate-500 focus:border-sky-400 focus:bg-slate-950 focus:ring-4 focus:ring-sky-500/15"
                 />
               </label>
 
-              <div className="rounded-2xl bg-sky-50 px-4 py-3 text-sm font-semibold text-sky-700">
+              <div className="rounded-2xl border border-sky-400/15 bg-sky-500/10 px-4 py-3 text-sm font-semibold text-sky-200">
                 {filteredProfiles.length} maba ditemukan
               </div>
             </div>
@@ -155,7 +155,7 @@ export default function Home() {
 
           {filteredProfiles.length > 0 ? (
             <div className="space-y-6">
-              <div className="flex flex-col gap-3 text-sm font-semibold text-slate-600 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col gap-3 text-sm font-semibold text-slate-300 sm:flex-row sm:items-center sm:justify-between">
                 <p>
                   Menampilkan {(currentPage - 1) * cardsPerPage + 1}-
                   {Math.min(currentPage * cardsPerPage, filteredProfiles.length)} dari{" "}
@@ -181,7 +181,7 @@ export default function Home() {
               {renderPagination()}
             </div>
           ) : (
-            <div className="rounded-[2rem] border border-dashed border-sky-200 bg-white/70 px-6 py-16 text-center text-slate-600 backdrop-blur">
+            <div className="rounded-[2rem] border border-dashed border-sky-400/20 bg-slate-900/50 px-6 py-16 text-center text-slate-300 backdrop-blur">
               Tidak ada data maba yang cocok dengan pencarianmu.
             </div>
           )}
