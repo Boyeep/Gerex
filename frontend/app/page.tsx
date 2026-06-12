@@ -8,154 +8,8 @@ import {
   useState,
 } from "react";
 
-import { MabaProfileCard, type MabaProfileCardProps } from "../components/maba-profile-card";
-
-const mockMabaProfiles: MabaProfileCardProps[] = [
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Boy Steven Benaya Aritonang",
-    nrp: "5025251154",
-    gugus: "Gugus Arunika",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Nadia Putri Lestari",
-    nrp: "5025251107",
-    gugus: "Gugus Cakrawala",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Raka Mahendra",
-    nrp: "5025251121",
-    gugus: "Gugus Samudra",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Keisha Aurellia",
-    nrp: "5025251133",
-    gugus: "Gugus Bhaskara",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Farras Althaf",
-    nrp: "5025251148",
-    gugus: "Gugus Arunika",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Alya Rahmadini",
-    nrp: "5025251160",
-    gugus: "Gugus Cakrawala",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Iqbal Ramadhan",
-    nrp: "5025251172",
-    gugus: "Gugus Bhaskara",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Celine Maharani",
-    nrp: "5025251185",
-    gugus: "Gugus Samudra",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Rizky Aditya",
-    nrp: "5025251191",
-    gugus: "Gugus Arunika",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Annisa Rahma",
-    nrp: "5025251194",
-    gugus: "Gugus Cakrawala",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Tegar Prasetyo",
-    nrp: "5025251198",
-    gugus: "Gugus Samudra",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Michelle Valencia",
-    nrp: "5025251202",
-    gugus: "Gugus Bhaskara",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Dion Wicaksono",
-    nrp: "5025251208",
-    gugus: "Gugus Arunika",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Salsa Kirana",
-    nrp: "5025251215",
-    gugus: "Gugus Cakrawala",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Galang Saputra",
-    nrp: "5025251224",
-    gugus: "Gugus Samudra",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Clarissa Evangeline",
-    nrp: "5025251230",
-    gugus: "Gugus Bhaskara",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Bagas Maulana",
-    nrp: "5025251236",
-    gugus: "Gugus Arunika",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Naura Amanda",
-    nrp: "5025251242",
-    gugus: "Gugus Cakrawala",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Hafiz Ma'ruf",
-    nrp: "5025251249",
-    gugus: "Gugus Samudra",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Shania Olivia",
-    nrp: "5025251255",
-    gugus: "Gugus Bhaskara",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Kevin Fernando",
-    nrp: "5025251263",
-    gugus: "Gugus Arunika",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Aurel Natasha",
-    nrp: "5025251268",
-    gugus: "Gugus Cakrawala",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Naufal Ibrahim",
-    nrp: "5025251274",
-    gugus: "Gugus Samudra",
-  },
-  {
-    photoSrc: "/Professional-Photo.jpeg",
-    name: "Felicia Putri",
-    nrp: "5025251281",
-    gugus: "Gugus Bhaskara",
-  },
-];
+import { MabaProfileCard } from "../components/maba-profile-card";
+import { mockMabaProfiles } from "../data/mock-maba-profiles";
 
 const cardsPerPage = 16;
 
@@ -205,6 +59,59 @@ export default function Home() {
     [totalPages],
   );
 
+  const renderPagination = () => (
+    <div className="flex flex-wrap items-center justify-center gap-2">
+      <button
+        type="button"
+        onClick={() =>
+          startTransition(() => {
+            setCurrentPage((page) => Math.max(1, page - 1));
+          })
+        }
+        disabled={currentPage === 1}
+        className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 disabled:cursor-not-allowed disabled:opacity-45"
+      >
+        Previous
+      </button>
+
+      {pageNumbers.map((pageNumber) => {
+        const isActive = pageNumber === currentPage;
+
+        return (
+          <button
+            key={pageNumber}
+            type="button"
+            onClick={() =>
+              startTransition(() => {
+                setCurrentPage(pageNumber);
+              })
+            }
+            className={`h-11 min-w-11 rounded-2xl px-4 text-sm font-bold transition ${
+              isActive
+                ? "bg-sky-600 text-white shadow-[0_12px_30px_rgba(2,132,199,0.28)]"
+                : "border border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:text-sky-700"
+            }`}
+          >
+            {pageNumber}
+          </button>
+        );
+      })}
+
+      <button
+        type="button"
+        onClick={() =>
+          startTransition(() => {
+            setCurrentPage((page) => Math.min(totalPages, page + 1));
+          })
+        }
+        disabled={currentPage === totalPages}
+        className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 disabled:cursor-not-allowed disabled:opacity-45"
+      >
+        Next
+      </button>
+    </div>
+  );
+
   return (
     <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.22),_transparent_24rem),linear-gradient(180deg,#eef6ff_0%,#dbeafe_100%)]">
       <section className="relative mx-auto flex min-h-screen w-full max-w-[1440px] flex-col px-4 py-10 sm:px-6 lg:px-8">
@@ -214,14 +121,13 @@ export default function Home() {
           <div className="space-y-4">
             <div className="space-y-1">
               <p className="text-sm font-semibold tracking-[0.18em] text-sky-700 uppercase">
-                Mock Data
+                Maba Finder
               </p>
               <h1 className="text-3xl font-black tracking-[-0.04em] text-slate-900 sm:text-4xl">
-                Direktori Kartu Profil Maba
+                Maba Profile Card
               </h1>
               <p className="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-                Contoh reuse komponen kartu profil dalam grid responsif dengan
-                search bar di bagian atas.
+                By: Boy Steevn Benaya Aritonang (5025251154)
               </p>
             </div>
 
@@ -243,6 +149,8 @@ export default function Home() {
                 {filteredProfiles.length} maba ditemukan
               </div>
             </div>
+
+            {filteredProfiles.length > 0 && renderPagination()}
           </div>
 
           {filteredProfiles.length > 0 ? (
@@ -270,56 +178,7 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-2">
-                <button
-                  type="button"
-                  onClick={() =>
-                    startTransition(() => {
-                      setCurrentPage((page) => Math.max(1, page - 1));
-                    })
-                  }
-                  disabled={currentPage === 1}
-                  className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 disabled:cursor-not-allowed disabled:opacity-45"
-                >
-                  Previous
-                </button>
-
-                {pageNumbers.map((pageNumber) => {
-                  const isActive = pageNumber === currentPage;
-
-                  return (
-                    <button
-                      key={pageNumber}
-                      type="button"
-                      onClick={() =>
-                        startTransition(() => {
-                          setCurrentPage(pageNumber);
-                        })
-                      }
-                      className={`h-11 min-w-11 rounded-2xl px-4 text-sm font-bold transition ${
-                        isActive
-                          ? "bg-sky-600 text-white shadow-[0_12px_30px_rgba(2,132,199,0.28)]"
-                          : "border border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:text-sky-700"
-                      }`}
-                    >
-                      {pageNumber}
-                    </button>
-                  );
-                })}
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    startTransition(() => {
-                      setCurrentPage((page) => Math.min(totalPages, page + 1));
-                    })
-                  }
-                  disabled={currentPage === totalPages}
-                  className="h-11 rounded-2xl border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 transition hover:border-sky-300 hover:text-sky-700 disabled:cursor-not-allowed disabled:opacity-45"
-                >
-                  Next
-                </button>
-              </div>
+              {renderPagination()}
             </div>
           ) : (
             <div className="rounded-[2rem] border border-dashed border-sky-200 bg-white/70 px-6 py-16 text-center text-slate-600 backdrop-blur">

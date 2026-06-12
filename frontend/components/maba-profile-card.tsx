@@ -1,18 +1,13 @@
 import Image from "next/image";
 
-export type MabaProfileCardProps = {
-  photoSrc: string;
-  name: string;
-  nrp: string;
-  gugus: string;
-};
+import type { MabaProfile } from "../data/mock-maba-profiles";
 
 export function MabaProfileCard({
   photoSrc,
   name,
   nrp,
   gugus,
-}: MabaProfileCardProps) {
+}: MabaProfile) {
   return (
     <article className="w-full overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-[0_26px_60px_rgba(37,99,235,0.16)] ring-1 ring-sky-100/80 transition-transform duration-200 hover:-translate-y-1">
       <div className="relative aspect-[4/5] overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#e0f2fe_58%,#f8fafc_100%)]">
