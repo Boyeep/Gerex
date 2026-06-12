@@ -9,8 +9,8 @@ export function MabaProfileCard({
   gugus,
 }: MabaProfile) {
   return (
-    <article className="w-full overflow-hidden rounded-[2rem] border border-white/80 bg-white shadow-[0_26px_60px_rgba(37,99,235,0.16)] ring-1 ring-sky-100/80 transition-transform duration-200 hover:-translate-y-1">
-      <div className="relative aspect-[4/5] overflow-hidden bg-[linear-gradient(180deg,#f8fbff_0%,#e0f2fe_58%,#f8fafc_100%)]">
+    <article className="w-full overflow-hidden rounded-[2rem] border border-[#e6dccb] bg-[#fffaf2] shadow-[0_26px_50px_rgba(136,112,74,0.12)] ring-1 ring-[#f0e7d8] transition-transform duration-200 hover:-translate-y-1">
+      <div className="relative aspect-[4/5] overflow-hidden bg-[linear-gradient(180deg,#fcf8f0_0%,#f5efe1_62%,#f7f1e4_100%)]">
         <Image
           src={photoSrc}
           alt={`Foto ${name}`}
@@ -21,11 +21,11 @@ export function MabaProfileCard({
         />
       </div>
 
-      <div className="grid gap-1.5 border-t border-slate-100 bg-slate-50/90 px-5 py-5 sm:px-6">
-        <h2 className="text-[1.18rem] leading-[1.15] font-extrabold tracking-[-0.03em] text-slate-900 sm:text-[1.35rem]">
+      <div className="grid gap-1.5 border-t border-[#d9c9a3] bg-[#f4e7bb] px-5 py-5 shadow-[8px_8px_0_rgba(160,139,96,0.08)] sm:px-6">
+        <h2 className="text-[1.18rem] leading-[1.15] font-extrabold tracking-[-0.03em] text-[#2f2923] sm:text-[1.35rem]">
           {name}
         </h2>
-        <p className="text-[0.92rem] leading-6 font-semibold text-sky-700 sm:text-[0.98rem]">
+        <p className="text-[0.92rem] leading-6 font-semibold text-[#5f5238] sm:text-[0.98rem]">
           NRP {nrp} • {gugus}
         </p>
       </div>
