@@ -69,7 +69,7 @@ export default function Home() {
           })
         }
         disabled={currentPage === 1}
-        className="h-11 rounded-2xl border border-[#d8ccb8] bg-[#f6efdf] px-4 text-sm font-semibold text-[#5f5547] transition hover:border-[#bfa98b] hover:bg-[#f1e6cf] hover:text-[#3c342c] disabled:cursor-not-allowed disabled:opacity-45"
+        className="h-11 rounded-2xl bg-[#f6efdf] px-4 text-sm font-semibold text-[#5f5547] shadow-[0_10px_24px_rgba(160,139,96,0.08)] transition hover:bg-[#f1e6cf] hover:text-[#3c342c] disabled:cursor-not-allowed disabled:opacity-45"
       >
         Previous
       </button>
@@ -89,7 +89,7 @@ export default function Home() {
             className={`h-11 min-w-11 rounded-2xl px-4 text-sm font-bold transition ${
               isActive
                 ? "bg-[#d9c08b] text-[#2e271f] shadow-[0_12px_24px_rgba(166,136,74,0.22)]"
-                : "border border-[#d8ccb8] bg-[#f6efdf] text-[#5f5547] hover:border-[#bfa98b] hover:bg-[#f1e6cf] hover:text-[#3c342c]"
+                : "bg-[#f6efdf] text-[#5f5547] shadow-[0_10px_24px_rgba(160,139,96,0.08)] hover:bg-[#f1e6cf] hover:text-[#3c342c]"
             }`}
           >
             {pageNumber}
@@ -105,7 +105,7 @@ export default function Home() {
           })
         }
         disabled={currentPage === totalPages}
-        className="h-11 rounded-2xl border border-[#d8ccb8] bg-[#f6efdf] px-4 text-sm font-semibold text-[#5f5547] transition hover:border-[#bfa98b] hover:bg-[#f1e6cf] hover:text-[#3c342c] disabled:cursor-not-allowed disabled:opacity-45"
+        className="h-11 rounded-2xl bg-[#f6efdf] px-4 text-sm font-semibold text-[#5f5547] shadow-[0_10px_24px_rgba(160,139,96,0.08)] transition hover:bg-[#f1e6cf] hover:text-[#3c342c] disabled:cursor-not-allowed disabled:opacity-45"
       >
         Next
       </button>
@@ -141,11 +141,11 @@ export default function Home() {
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Cari nama, NRP, atau gugus"
-                  className="h-14 w-full rounded-2xl border border-[#ddd1bc] bg-[#fffaf0] pl-20 pr-4 text-sm font-medium text-[#302921] outline-none transition placeholder:text-[#a69780] focus:border-[#c8ad79] focus:bg-white focus:ring-4 focus:ring-[#ead9ab]/35"
+                  className="h-14 w-full rounded-2xl bg-[#fffaf0] pl-20 pr-4 text-sm font-medium text-[#302921] outline-none transition placeholder:text-[#a69780] focus:bg-white focus:ring-4 focus:ring-[#ead9ab]/35"
                 />
               </label>
 
-              <div className="rounded-2xl border border-[#dcc791] bg-[#f4e7bb] px-4 py-3 text-sm font-semibold text-[#5f5238]">
+              <div className="rounded-2xl bg-[#f4e7bb] px-4 py-3 text-sm font-semibold text-[#5f5238] shadow-[0_10px_24px_rgba(160,139,96,0.08)]">
                 {filteredProfiles.length} maba ditemukan
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function Home() {
               {renderPagination()}
             </div>
           ) : (
-            <div className="rounded-[2rem] border border-dashed border-[#d8ccb8] bg-[#fbf6eb]/90 px-6 py-16 text-center text-[#6f6557] backdrop-blur">
+            <div className="rounded-[2rem] bg-[#fbf6eb]/90 px-6 py-16 text-center text-[#6f6557] shadow-[0_16px_38px_rgba(160,139,96,0.08)] backdrop-blur">
               Tidak ada data maba yang cocok dengan pencarianmu.
             </div>
           )}
